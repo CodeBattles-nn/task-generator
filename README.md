@@ -33,7 +33,7 @@ runner = Runner()
 input_data = ["This", "is", "test", "data"]
 
 out = runner.run_many(input_data)
-runner.save_to_out(out, input_data)
+runner.save_tests(out, input_data)
 
 ```
 
@@ -50,7 +50,7 @@ runner = Runner()
 input_data = [random.randint(1, 10000) for i in range(10)]
 
 out = runner.run_many(input_data)
-runner.save_to_out(out, input_data)
+runner.save_tests(out, input_data)
 
 ```
 
