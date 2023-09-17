@@ -2,6 +2,8 @@ import json
 import os
 import subprocess
 
+from core.printUtil import clear_print
+
 
 class Runner:
 
@@ -30,9 +32,14 @@ class Runner:
         return stdout
 
     def run_many(self, input_data):
+        print("[/] Tests are running")
         out = []
-        for i in input_data:
-            out.append(self.run(i))
+        for i, stdin_text in enumerate(input_data):
+            out.append(self.run(stdin_text))
+            clear_print(f"{i + 1}/{len(input_data)}",)
+
+        print()
+        print("[+] Tests was built")
 
         return out
 
@@ -81,6 +88,9 @@ class Runner:
             return ""
 
     def build(self, indent=None):
+
+        print("[/] Building export")
+
         name = self.try_open_file("build/name.txt")
         description = self.try_open_file("build/descripton.txt")
         in_data = self.try_open_file("build/in_data.txt")
@@ -97,3 +107,5 @@ class Runner:
 
         with open("build.json", "w+") as f:
             f.write(json.dumps(to_export, indent=indent))
+
+        print("[+] Export was built")
