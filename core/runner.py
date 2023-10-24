@@ -84,17 +84,18 @@ class Runner:
         try:
             with open(name, mode) as f:
                 return f.read()
-        except:
+        except Exception as e:
+            print(e)
             return ""
 
     def build(self, indent=None):
 
         print("[/] Building export")
 
-        name = self.try_open_file("build/name.txt")
-        description = self.try_open_file("build/descripton.txt")
-        in_data = self.try_open_file("build/in_data.txt")
-        out_data = self.try_open_file("build/out_data.txt")
+        name = self.try_open_file("meta/name.txt")
+        description = self.try_open_file("meta/description.txt")
+        in_data = self.try_open_file("meta/in_data.txt")
+        out_data = self.try_open_file("meta/out_data.txt")
 
         to_export = {
             "name": name,
