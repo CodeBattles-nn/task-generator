@@ -56,10 +56,10 @@ class Runner:
             to_file = list(zip(inp, out))
 
         with open("build/tests.json", "w+") as f:
-            f.write(json.dumps(to_file))
+            f.write(json.dumps(to_file, ensure_ascii=False))
 
         with open("build/tests_beautiful.json", "w+") as f:
-            f.write(json.dumps(to_file, indent=2))
+            f.write(json.dumps(to_file, indent=2, ensure_ascii=False))
 
         self.tests = to_file
 
@@ -67,10 +67,10 @@ class Runner:
         self.try_create_dir("build")
 
         with open("build/examples.json", "w+") as f:
-            f.write(json.dumps(to_file))
+            f.write(json.dumps(to_file, ensure_ascii=False))
 
         with open("build/examples_beautiful.json", "w+") as f:
-            f.write(json.dumps(to_file, indent=2))
+            f.write(json.dumps(to_file, indent=2, ensure_ascii=False))
 
         self.examples = to_file
 
@@ -107,6 +107,6 @@ class Runner:
         }
 
         with open("build.json", "w+") as f:
-            f.write(json.dumps(to_export, indent=indent))
+            f.write(json.dumps(to_export, indent=indent, ensure_ascii=False))
 
         print("[+] Экспорт завершен")
