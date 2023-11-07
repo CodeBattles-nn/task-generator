@@ -32,14 +32,14 @@ class Runner:
         return stdout
 
     def run_many(self, input_data):
-        print("[/] Tests are running")
+        print("[/] Генерация тестов..")
         out = []
         for i, stdin_text in enumerate(input_data):
             out.append(self.run(stdin_text))
             clear_print(f"{i + 1}/{len(input_data)}",)
 
         print()
-        print("[+] Tests was built")
+        print("[+] Тесты созданы")
 
         return out
 
@@ -90,7 +90,7 @@ class Runner:
 
     def build(self, indent=None):
 
-        print("[/] Building export")
+        print("[/] Экспорт...")
 
         name = self.try_open_file("meta/name.txt")
         description = self.try_open_file("meta/description.txt")
@@ -109,4 +109,4 @@ class Runner:
         with open("build.json", "w+") as f:
             f.write(json.dumps(to_export, indent=indent))
 
-        print("[+] Export was built")
+        print("[+] Экспорт завершен")
