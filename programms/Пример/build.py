@@ -4,10 +4,10 @@ from core.runner import Runner
 
 runner = Runner()
 
-examples = {
-    "1\n5": "5",
-    "-5\n10": "-50",
-}
+examples = [
+    ["1\n5", "5"],
+    ["-5\n10", "-50"],
+]
 
 input_data = []
 

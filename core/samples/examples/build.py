@@ -2,10 +2,10 @@ from core.runner import Runner
 
 runner = Runner()
 
-examples = {
-    "Hello": "Hello",
-    "i++": "i++",
-}
+examples = [
+    ["Hello", "Hello"],
+    ["i++", "i++"],
+]
 
 input_data = ["This", "is", "test", "data"]
 
