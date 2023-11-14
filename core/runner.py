@@ -36,7 +36,7 @@ class Runner:
         out = []
         for i, stdin_text in enumerate(input_data):
             out.append(self.run(stdin_text))
-            clear_print(f"{i + 1}/{len(input_data)}",)
+            clear_print(f"{i + 1}/{len(input_data)}", )
 
         print()
         print("[+] Тесты созданы")
@@ -80,9 +80,9 @@ class Runner:
         except:
             pass
 
-    def try_open_file(self, name, mode="r"):
+    def try_open_file(self, name, mode="r", encoding="uft-8"):
         try:
-            with open(name, mode) as f:
+            with open(name, mode, encoding=encoding) as f:
                 return f.read()
         except Exception as e:
             print(e)
