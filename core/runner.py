@@ -80,7 +80,7 @@ class Runner:
         except:
             pass
 
-    def try_open_file(self, name, mode="r", encoding="utf-8"):
+    def try_open_file(self, name, mode="r", encoding="uft-8"):
         try:
             with open(name, mode, encoding=encoding) as f:
                 return f.read()
