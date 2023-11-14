@@ -1,6 +1,7 @@
 import json
 import os
 import subprocess
+import platform
 
 from core.printUtil import clear_print
 
@@ -8,8 +9,14 @@ from core.printUtil import clear_print
 class Runner:
 
     def __init__(self, running=None):
+
+        run_command = "python"
+
+        if platform.system() == "Linux":
+            run_command = "python3"
+
         if running is None:
-            running = ['python', 'main.py']
+            running = [run_command, 'main.py']
         self.running_command = running
         self.examples = []
         self.tests = []
