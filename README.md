@@ -6,7 +6,7 @@
 
 ### Создать задачу
 вводим в консоль
-```commandline
+```css
 manager.py create {name} 
 ```
 
@@ -111,10 +111,10 @@ ___
 Эта папка создается только если вы выбрали флаг **-f** при создании
 
 структура папки с методанными
-```
+```css
 meta
-| - description.txt
-| - in_data.txt
-| - name.txt
-| - out_data.txt
+├── description.txt
+├── in_data.txt
+├── name.txt
+└── out_data.txt
 ```
