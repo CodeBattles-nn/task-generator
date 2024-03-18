@@ -31,6 +31,7 @@ class Runner:
         buffer = []
         while new_line_counter <= 3:
             text = process.stdout.readline()
+            text = text.replace("\n", "")
             buffer.append(text)
             new_line_counter += len(text.strip()) == 0
 
