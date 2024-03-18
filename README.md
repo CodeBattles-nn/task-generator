@@ -1,123 +1,88 @@
 # TaskGeneratorFramework
 
-#### This program generate tests for CodeBattles problems
+#### Программа для генерации задач в систему CodeBattles  
 
-## Usage
+## Использование
 
-### Create problem
-
-```commandline
+### Создать задачу
+вводим в консоль
+```css
 manager.py create {name} 
 ```
 
-Where {name} => name of problem
+где {name} => название папки с  задачей
 
-Folder with name {name} will be created in folder programs
+Папка с именем {name} будет создана в папке **programs**
 
-| Flag | Description                     |
+| Флаг | Описание                        |
 |------|---------------------------------|
-| -e   | Problem examples generated      |
-| -f   | Full folder with metadata files |
+| -e   | Генерировать примеры            |
+| -f   | Генерировать файлы метадаты     |
 
-Flags must be after name
+Флаги должны быть после названия задачи
 
-### Configuration
+### Конфигурация
 
-Go to the folder with you problem
+Перейдите в папку со своей задачей
 
-- **main.py** - File with you program
-- **build.py** - Test file. For generate tests for CodeBattles database run it
-- **meta** - folder with problem`s metadata (Only if use -f flag on create)
+- **main.py** - Файл с решением задачи (На его основе будут генерироаться ответы)
+- **build.py** - Файл настроек и сборки. Для сборки файла для экспорта запустите этот файл
+- **meta** - Папка с метаданными (Появляется только если используется флаг -f)
 
-#### How to configure input data
+#### Настройка входных данных
 
-Let`s see to a tests.py file
+Давайте посмотрим на файл **build.py** файл
 
 ```python
 from core.runner import Runner
 
 runner = Runner()
+
+examples = [
+    ["Hello", "Hello"],
+    ["i++", "i++"],
+]
 
 input_data = ["This", "is", "test", "data"]
 
 out = runner.run_many(input_data)
 runner.save_tests(out, input_data)
-
+runner.save_examples(examples)
+runner.build(indent=2)
+print("[+] Done")
 ```
 
-For change input data change a *input_data* variable.
-For example, random 10 test with random nums in stdin
+Для изменения входных данных измините перменную *input_data*
+
+Для примера внизу показана программа, которая использует для генерации тестов случайные 10 чисел (от 1 до 10000)
 
 ```python
-import random
-
 from core.runner import Runner
 
 runner = Runner()
+
+examples = [
+    ["10", "10"],
+    ["1561", "1561"],
+]
 
 input_data = [random.randint(1, 10000) for i in range(10)]
 
 out = runner.run_many(input_data)
 runner.save_tests(out, input_data)
-
+runner.save_examples(examples)
+runner.build(indent=2)
+print("[+] Done")
 ```
 
-### Build
+### Сборка
+> Для добавления задачи на сайт CodeBattles нужно скопировать файл **build.json**
 
-For add problem to CodeBattles database test must be in json format.
 
-- Run build.py to export data.
-- *out.json* and *out_beautiful.json* files was created (in build folder)
+- Запустите build.py для сборки задачи.
 
-*out.json*
 
-```json
-[
-  [
-    "This",
-    "This"
-  ],
-  [
-    "is",
-    "is"
-  ],
-  [
-    "test",
-    "test"
-  ],
-  [
-    "data",
-    "data"
-  ]
-]
-```
-
-This out may be added in database
-
-*out_beautiful.json*
-
-```json
-[
-  [
-    "This",
-    "This"
-  ],
-  [
-    "is",
-    "is"
-  ],
-  [
-    "test",
-    "test"
-  ],
-  [
-    "data",
-    "data"
-  ]
-]
-```
-
-Full build file (build.json)
+Полный файл собранной задачи (build.json)
 ```json
 {
   "name": "",
@@ -139,17 +104,17 @@ Full build file (build.json)
 ```
 
 ___
-If you are used flags build folder can contain other files 
+При использовании различных флагов структура файлов может немного отличаться
 
-### Configure metadata
-For configure problem (set name, description...) edit files in folder meta.
-This folder creates if you are create problem with flag **-f**
+### Настройка метаданных
+Для настройки (имени, описания и т.д...) Измените файлы в папке *meta*.
+Эта папка создается только если вы выбрали флаг **-f** при создании
 
-Meta folder
-```
+структура папки с методанными
+```css
 meta
-| - description.txt
-| - in_data.txt
-| - name.txt
-| - out_data.txt
+├── description.txt
+├── in_data.txt
+├── name.txt
+└── out_data.txt
 ```
