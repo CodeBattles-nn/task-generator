@@ -1,37 +1,38 @@
-# TaskGeneratorFramework
+# Task Generator
 
-#### Программа для генерации задач в систему CodeBattles  
+#### A framework for generating tasks in the CodeBattles platform.
 
-## Использование
+## Usage
 
-### Создать задачу
-вводим в консоль
-```css
+### Create the task
+Enter into the console```css
 manager.py create {name} 
 ```
 
-где {name} => название папки с  задачей
+where {name} => the name of the task folder
 
-Папка с именем {name} будет создана в папке **programs**
+A folder named {name} will be created in the **programs folder**
 
-| Флаг | Описание                        |
+| Flag | Description                        |
 |------|---------------------------------|
-| -e   | Генерировать примеры            |
-| -f   | Генерировать файлы метадаты     |
+| -e   | Create the examples            |
+| -f   | Generate metadata files     |
 
-Флаги должны быть после названия задачи
+The flags should be after the task name.
 
-### Конфигурация
+### Configuration
 
-Перейдите в папку со своей задачей
+Go to the folder with your task
 
-- **main.py** - Файл с решением задачи (На его основе будут генерироаться ответы)
-- **build.py** - Файл настроек и сборки. Для сборки файла для экспорта запустите этот файл
-- **meta** - Папка с метаданными (Появляется только если используется флаг -f)
+- **- **main.py ** - A file with the solution of the problem (Answers will be generated based on it).
+- **build.py ** - Settings and build file. To build a file for export, run this file.
+- **meta** - Folder with metadata (Appears only if the -f flag is used).
 
-#### Настройка входных данных
 
-Давайте посмотрим на файл **build.py** файл
+
+#### Setting up input data
+
+Let's take a look at the file **build.py ** file:
 
 ```python
 from core.runner import Runner
@@ -52,9 +53,9 @@ runner.build(indent=2)
 print("[+] Done")
 ```
 
-Для изменения входных данных измините перменную *input_data*
+To change the input data, change the *input_data variable*.
 
-Для примера внизу показана программа, которая использует для генерации тестов случайные 10 чисел (от 1 до 10000)
+For example, a program is shown below that uses random 10 numbers (from 1 to 10000) to generate tests.
 
 ```python
 from core.runner import Runner
@@ -75,14 +76,14 @@ runner.build(indent=2)
 print("[+] Done")
 ```
 
-### Сборка
-> Для добавления задачи на сайт CodeBattles нужно скопировать файл **build.json**
+### Build
+> To add a task to the CodeBattles website, you need to copy the **build file.json**
 
 
-- Запустите build.py для сборки задачи.
+- Launch build.py to build the task.
 
 
-Полный файл собранной задачи (build.json)
+The complete file of the built task (build.json).
 ```json
 {
   "name": "",
@@ -104,13 +105,13 @@ print("[+] Done")
 ```
 
 ___
-При использовании различных флагов структура файлов может немного отличаться
+When using different flags, the file structure may vary slightly
 
-### Настройка метаданных
-Для настройки (имени, описания и т.д...) Измените файлы в папке *meta*.
-Эта папка создается только если вы выбрали флаг **-f** при создании
+### Setting up metadata
+For customization (name, description, etc...) Edit the files in the *meta* folder.
+This folder is created only if you selected the **-f** flag when creating.
 
-структура папки с методанными
+The structure of the metadata folder
 ```css
 meta
 ├── description.txt
