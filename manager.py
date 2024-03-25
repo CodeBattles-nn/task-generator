@@ -4,15 +4,15 @@ from distutils.dir_util import copy_tree
 
 DESCRIPTION = \
     '''
-    Менеджер TestsGeneratorFramework.
-    
-    Инструкция:
-    
-    python3 create [NAME]           Создать задачку с именем NAME. (без всего)
-    python3 create [NAME] -e        Создать задачку с именем NAME с генерацией примеров
-    python3 create [NAME] -f        Создать задачку с именем NAME с метаданными
-    python3 create [NAME] -e -f     Создать задачку с именем NAME с метаданными и примерами
-    '''
+  TestsGenerator's manager.
+  
+  Instruction manual:
+  
+  python3 create [NAME] Create a task name NAME. (without everything)
+  python3 create [NAME] -e Create a task named NAME with the generation of examples
+  python3 create [NAME] -f Create a task named NAME with metadata
+  python3 create [NAME] -e -f Create a task named NAME with metadata and examples
+  '''
 
 args = sys.argv[1:]
 

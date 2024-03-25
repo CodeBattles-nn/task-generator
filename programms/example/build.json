@@ -1,8 +1,8 @@
 {
-  "name": "Умножение v2",
-  "description": "Вася учится умножать числа. Помоги ему умножить 2 числа",
+  "name": "Multiplication v2",
+  "description": "Jake is learning to multiply numbers. Help him multiply 2 numbers.",
   "in": "-10^5 <= A <= 10^5\n-10^5 <= B <= 10^5",
-  "out": "Одно число -\nПроизведение A и B",
+  "out": "One number is the product of A and B.",
   "examples": [
     [
       "1\n5",
