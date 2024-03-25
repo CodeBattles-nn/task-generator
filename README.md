@@ -25,8 +25,8 @@ The flags should be after the task name.
 
 Go to the folder with your task
 
-- **- **main.py ** - A file with the solution of the problem (Answers will be generated based on it).
-- **build.py ** - Settings and build file. To build a file for export, run this file.
+- **main.py** - A file with the solution of the problem (Answers will be generated based on it).
+- **build.py** - Settings and build file. To build a file for export, run this file.
 - **meta** - Folder with metadata (Appears only if the -f flag is used).
 
 
