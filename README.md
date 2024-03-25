@@ -5,7 +5,8 @@
 ## Usage
 
 ### Create the task
-Enter into the console```css
+Enter into the console
+```css
 manager.py create {name} 
 ```
 
