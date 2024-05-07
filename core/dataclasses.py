@@ -21,6 +21,7 @@ class Question:
             'question': self.question,
             'answers': self.answers,
             'correct_answers': self.correct_answers,
+            "type": "select"
         }
 
     @classmethod

@@ -13,7 +13,10 @@ class Runner:
         name = self.name
 
         quiz = Quiz(name, questions)
-        serialized = quiz.serialize()
+        serialized = {
+            **quiz.serialize(),
+            "version": 2
+        }
 
         with open("build.json", "w", encoding="utf-8") as f:
             f.write(json.dumps(serialized, ensure_ascii=False))
