@@ -38,4 +38,5 @@ class Quiz:
         return {
             'name': self.name,
             'questions': list(map(lambda question: question.serialize(), self.questions)),
+            'type': "quiz"
         }
